@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: civic_reports
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/civic_reports
+      DATABASE_URL_SYNC: postgresql://postgres:postgres@db:5432/civic_reports
+      AI_SERVICE_URL: http://ai-service:8001
+      SMS_ENABLED: "false"
+      PUSH_ENABLED: "false"
+    volumes:
+      - ./backend:/app
+      - upload_data:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  ai-service:
+    build: ./ai-service
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./ai-service:/app
+      - model_data:/app/models
+    command: uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+
+  admin-web:
+    build: ./admin-web
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api/v1
+    volumes:
+      - ./admin-web/src:/app/src
+    depends_on:
+      - backend
+
+  sla-worker:
+    build: ./backend
+    working_dir: /app
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/civic_reports
+      DATABASE_URL_SYNC: postgresql://postgres:postgres@db:5432/civic_reports
+    volumes:
+      - ./backend:/app
+    depends_on:
+      db:
+        condition: service_healthy
+      backend:
+        condition: service_started
+    command: python scripts/sla_job.py --interval 30
+
+volumes:
+  postgres_data:
+  upload_data:
+  model_data:

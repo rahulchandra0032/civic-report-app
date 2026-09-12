@@ -1,0 +1,105 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_number": 1,
+        "district": "Ranchi",
+        "state": "Jharkhand"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [85.3096, 23.3441],
+            [85.3196, 23.3441],
+            [85.3196, 23.3541],
+            [85.3096, 23.3541],
+            [85.3096, 23.3441]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_number": 2,
+        "district": "Ranchi",
+        "state": "Jharkhand"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [85.3196, 23.3441],
+            [85.3296, 23.3441],
+            [85.3296, 23.3541],
+            [85.3196, 23.3541],
+            [85.3196, 23.3441]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_number": 3,
+        "district": "Ranchi",
+        "state": "Jharkhand"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [85.3096, 23.3541],
+            [85.3196, 23.3541],
+            [85.3196, 23.3641],
+            [85.3096, 23.3641],
+            [85.3096, 23.3541]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_number": 4,
+        "district": "Ranchi",
+        "state": "Jharkhand"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [85.3196, 23.3541],
+            [85.3296, 23.3541],
+            [85.3296, 23.3641],
+            [85.3196, 23.3641],
+            [85.3196, 23.3541]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_number": 5,
+        "district": "Ranchi",
+        "state": "Jharkhand"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [85.3296, 23.3441],
+            [85.3396, 23.3441],
+            [85.3396, 23.3541],
+            [85.3296, 23.3541],
+            [85.3296, 23.3441]
+          ]
+        ]
+      }
+    }
+  ]
+}

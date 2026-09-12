@@ -1,0 +1,52 @@
+{
+  "categories": {
+    "pothole": {
+      "department": "PWD",
+      "weight": 20,
+      "sla_hours": 48,
+      "description": "Road potholes and surface damage"
+    },
+    "garbage": {
+      "department": "Municipal Corporation",
+      "weight": 15,
+      "sla_hours": 72,
+      "description": "Garbage accumulation and waste management issues"
+    },
+    "streetlight": {
+      "department": "Electrical Department",
+      "weight": 12,
+      "sla_hours": 120,
+      "description": "Non-functional or damaged streetlights"
+    },
+    "water_leak": {
+      "department": "Water Supply",
+      "weight": 18,
+      "sla_hours": 48,
+      "description": "Water pipe leaks and burst pipes"
+    },
+    "drainage": {
+      "department": "Drainage Board",
+      "weight": 16,
+      "sla_hours": 72,
+      "description": "Blocked or damaged drainage systems"
+    },
+    "road_damage": {
+      "department": "PWD",
+      "weight": 19,
+      "sla_hours": 48,
+      "description": "General road surface damage"
+    },
+    "construction": {
+      "department": "Urban Development",
+      "weight": 14,
+      "sla_hours": 168,
+      "description": "Illegal or unsafe construction"
+    },
+    "other": {
+      "department": "General",
+      "weight": 10,
+      "sla_hours": 120,
+      "description": "Other civic issues"
+    }
+  }
+}
