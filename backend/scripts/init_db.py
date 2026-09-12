@@ -83,7 +83,7 @@ async def main():
     await init_db()
     await seed_admin()
     await seed_wards_if_empty()
-    print("▶ Database ready for deployment.")
+    print("Database ready for deployment.")
 
 
 if __name__ == "__main__":
